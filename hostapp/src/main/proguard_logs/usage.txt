@@ -964,7 +964,7 @@ com.example.hostapp.R$id
 com.example.hostapp.R$layout
 com.example.hostapp.R$string
 com.example.hostapp.R$style
-com.example.utils.FileUtils:
+org.skyun.aplugin.utils.FileUtils:
     11:11:public FileUtils()
 com.google.dexmaker.BinaryOp
 com.google.dexmaker.BinaryOp$1

@@ -10,7 +10,7 @@ import android.os.Environment;
 import android.util.DisplayMetrics;
 import android.view.ContextThemeWrapper;
 
-import com.example.utils.FileUtils;
+import org.skyun.aplugin.utils.FileUtils;
 
 import java.io.File;
 import java.io.IOException;

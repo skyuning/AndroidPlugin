@@ -1289,7 +1289,7 @@ com.example.hostapp.PluginInfo -> com.example.hostapp.d:
     java.lang.Class mEntryClass -> a
     java.lang.ClassLoader mClassLoader -> b
     java.lang.String mDexPath -> c
-com.example.utils.FileUtils -> com.example.a.a:
+org.skyun.aplugin.utils.FileUtils -> com.example.a.a:
     boolean copyToFile(java.io.InputStream,java.io.File) -> a
 com.google.dexmaker.AppDataDirGuesser -> com.a.a.a:
     java.io.File guess() -> a

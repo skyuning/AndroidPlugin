@@ -1,4 +1,4 @@
-package com.example.utils;
+package org.skyun.aplugin.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
