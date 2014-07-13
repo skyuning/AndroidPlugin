@@ -30,13 +30,11 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
                 PluginManager.hackInstrumentation(MainActivity.this);
 
-                if (PluginManager.getPluginInfoMap().get(sPluginPackageName) == null) {
-                    PluginInfo pluginInfo = PluginManager.testInstallPlugin(MainActivity.this, sPluginPackageName + ".apk");
-                    PluginManager.getPluginInfoMap().put(sPluginPackageName, pluginInfo);
-                }
+                PluginManager.testInstallPlugin(MainActivity.this, sPluginPackageName);
 
                 try {
-                    Class clz = PluginManager.getPluginInfoMap().get(sPluginPackageName).mClassLoader.loadClass("com.test.plugin.MainActivity");
+                    Class clz = PluginManager.getPluginInfoMap().get(sPluginPackageName)
+                            .mClassLoader.loadClass(sPluginPackageName + ".MainActivity");
                     Intent intent = new Intent(MainActivity.this, clz);
                     startActivity(intent);
                 } catch (ClassNotFoundException e) {

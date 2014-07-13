@@ -33,6 +33,8 @@ import dalvik.system.DexClassLoader;
  */
 public class PluginManager {
 
+    public static final String PLUGIN_SUFFIX = ".apk";
+
     private static HashMap<String, PluginInfo> sPluginInfoMap;
 
     public static HashMap<String, PluginInfo> getPluginInfoMap() {
@@ -41,23 +43,32 @@ public class PluginManager {
         return sPluginInfoMap;
     }
 
-    public static PluginInfo testInstallPlugin(Context context, String filename) {
+    public static PluginInfo testInstallPlugin(Context context, String packageName) {
+        String filename = packageName + PLUGIN_SUFFIX;
         try {
             File externalFile = new File(getExternalPluginDir(context), filename);
             FileUtils.copyToFile(context.getAssets().open(filename), externalFile);
-            return installPlugin(context, filename);
+            return installPlugin(context, packageName);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
     }
 
-    public static PluginInfo installPlugin(Context context, String filename) {
+    public static PluginInfo installPlugin(Context context, String packageName) {
+        String filename = packageName + PLUGIN_SUFFIX;
+        PluginInfo pluginInfo = getPluginInfoMap().get(filename);
+        if (pluginInfo != null)
+            return pluginInfo;
+
         File externalFile = new File(getExternalPluginDir(context), filename);
         if (externalFile.exists())
-            return installPluginFromExternal(context, filename);
+            pluginInfo = installPluginFromExternal(context, filename);
         else
-            return installPluginFromAssets(context, filename);
+            pluginInfo = installPluginFromAssets(context, filename);
+
+        getPluginInfoMap().put(packageName, pluginInfo);
+        return pluginInfo;
     }
 
     private static PluginInfo installPluginFromExternal(Context context, String filename) {
