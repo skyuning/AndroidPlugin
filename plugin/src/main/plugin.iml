@@ -16,7 +16,7 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 18 Platform (4.3)" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="user" scope="PROVIDED" />
+    <orderEntry type="module" module-name="user" />
     <orderEntry type="module-library">
       <library name="gson-2.2.4">
         <CLASSES>

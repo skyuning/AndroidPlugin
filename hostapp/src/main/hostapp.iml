@@ -15,6 +15,7 @@
     <orderEntry type="jdk" jdkName="Android API 18 Platform (4.3)" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="libs" level="project" />
+    <orderEntry type="module" module-name="user" />
   </component>
 </module>
 

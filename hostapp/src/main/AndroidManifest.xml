@@ -24,7 +24,9 @@
         </activity>
 
         <activity android:name="com.test.plugin.MainActivity" />
-        <activity android:name="com.test.plugin.NextActivity" />
+        <activity
+            android:name="com.test.plugin.NextActivity"
+            android:process="com.test.plugin" />
     </application>
 
 </manifest>

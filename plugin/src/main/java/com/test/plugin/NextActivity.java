@@ -17,6 +17,9 @@ public class NextActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setTitle(getClass().getName());
+
         TextView textView = new TextView(this);
         textView.setText("Myapplication NextActivity");
         textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 30);

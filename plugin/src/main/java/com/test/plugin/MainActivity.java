@@ -19,17 +19,10 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        TextView textView;
+        setTitle(getClass().getName());
 
         setContentView(R.layout.activity_main);
-        textView = (TextView) findViewById(R.id.hello_world);
-
-//        textView = new TextView(this);
-//        setContentView(textView);
-//        textView.setText("Myapplication MainActivity");
-//        textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 30);
-//        textView.setGravity(Gravity.CENTER);
-
+        TextView textView = (TextView) findViewById(R.id.hello_world);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
