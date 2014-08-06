@@ -20,13 +20,15 @@ public class PluginService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-//        PluginManager.ensureHackInstrumentation(this);
+        PluginManager.hackInstrumentation(this);
+
         String pluginPackage = intent.getStringExtra(EXTRA_PLUGIN_PACKAGE);
-//        PluginManager.ensureInstallPlugin(this, pluginPackage + ".apk");
+        PluginManager.installPlugin(this, pluginPackage);
 
         Intent realIntent = intent.getParcelableExtra(EXTRA_REAL_INTENT);
         realIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(realIntent);
+
         return super.onStartCommand(intent, flags, startId);
     }
 }

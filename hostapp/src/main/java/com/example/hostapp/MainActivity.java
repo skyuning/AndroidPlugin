@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 import com.example.user.User;
 
-import org.skyun.aplugin.PluginInfo;
 import org.skyun.aplugin.PluginManager;
+import org.skyun.aplugin.PluginService;
 
 
 public class MainActivity extends Activity {
@@ -20,11 +20,11 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setTitle(getClass().getName());
-
+        setTitle("Host MainActivity");
         setContentView(R.layout.activity_main);
         TextView tv = (TextView) findViewById(R.id.hello_world);
-        tv.setText("Hello world" + User.getInstance().mUsername);
+
+        tv.setText("Username: " + User.getInstance(this).getUsername());
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,11 +35,15 @@ public class MainActivity extends Activity {
                 try {
                     Class clz = PluginManager.getPluginInfoMap().get(sPluginPackageName)
                             .mClassLoader.loadClass(sPluginPackageName + ".MainActivity");
-                    Intent intent = new Intent(MainActivity.this, clz);
-                    startActivity(intent);
+                    Intent realIntent = new Intent(MainActivity.this, clz);
+                    Intent intent = new Intent(MainActivity.this, PluginService.class);
+                    intent.putExtra(PluginService.EXTRA_PLUGIN_PACKAGE, sPluginPackageName);
+                    intent.putExtra(PluginService.EXTRA_REAL_INTENT, realIntent);
+                    startService(intent);
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }
+
             }
         });
     }

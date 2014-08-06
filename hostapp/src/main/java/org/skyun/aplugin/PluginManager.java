@@ -58,8 +58,8 @@ public class PluginManager {
     public static PluginInfo installPlugin(Context context, String packageName) {
         String filename = packageName + PLUGIN_SUFFIX;
         PluginInfo pluginInfo = getPluginInfoMap().get(filename);
-        if (pluginInfo != null)
-            return pluginInfo;
+//        if (pluginInfo != null)
+//            return pluginInfo;
 
         File externalFile = new File(getExternalPluginDir(context), filename);
         if (externalFile.exists())
@@ -222,10 +222,7 @@ public class PluginManager {
         return null;
     }
 
-    public static void hackInstrumentation(final Activity activity) {
-        ProgressDialog mProgressDialog = new ProgressDialog(activity);
-        mProgressDialog.setMessage("hacking instrumentation ...");
-
+    public static void hackInstrumentation(final Context context) {
         try {
             // 通过currentActivityThread静态方法获得ActivityThread对象.
             Class<?> activityThreadClass = Class.forName("android.app.ActivityThread");
@@ -236,11 +233,10 @@ public class PluginManager {
             instrumentationField.setAccessible(true);
             final Instrumentation instrumentation = (Instrumentation) instrumentationField.get(activityThread);
             if (instrumentation.getClass().getSimpleName().equals("Instrumentation")) {
-                mProgressDialog.show();
                 /*生成Instrumentation代理对象*/
                 Instrumentation minInstrumentation = ProxyBuilder
                         .forClass(Instrumentation.class)
-                        .dexCache(activity.getDir("dx", Context.MODE_PRIVATE))
+                        .dexCache(context.getDir("dx", Context.MODE_PRIVATE))
                         .handler(new InstrumentationInvoker(instrumentation))
                         .build();
                         /*替换原来的Instrumentation对象.*/
@@ -249,8 +245,6 @@ public class PluginManager {
 
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            mProgressDialog.dismiss();
         }
     }
 

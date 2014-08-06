@@ -19,10 +19,17 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setTitle(getClass().getName());
-
         setContentView(R.layout.activity_main);
+
+        setTitle("Plugin MainActivity");
+        User user = User.getInstance(getApplicationContext());
+
         TextView textView = (TextView) findViewById(R.id.hello_world);
+        String text = "";
+        text += "Class Name:\n" + getClass().getName();
+        text += "\n\nUsername: " + user.getUsername();
+        textView.setText(text);
+
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

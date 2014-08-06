@@ -18,16 +18,17 @@ public class NextActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setTitle(getClass().getName());
+        setTitle("Plugin NextActivity");
+        User user = User.getInstance(getApplicationContext());
 
         TextView textView = new TextView(this);
-        textView.setText("Myapplication NextActivity");
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 30);
-        textView.setGravity(Gravity.CENTER);
-        textView.setText(Gson.class.getName());
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
+        textView.setPadding(40, 40, 40, 40);
 
-        User user = User.getInstance();
-        textView.setText(user.mUsername + "\n" + user.mImage);
+        String text = "";
+        text += "Class Name:\n" + getClass().getName();
+        text += "\n\nUsername: " + user.getUsername();
+        textView.setText(text);
 
         setContentView(textView);
     }
