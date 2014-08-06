@@ -16,16 +16,7 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 17 Platform (4.2.2)" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="user" />
-    <orderEntry type="module-library">
-      <library name="gson-2.2.4">
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../libs/gson-2.2.4.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="module" module-name="user" scope="PROVIDED" />
   </component>
 </module>
 

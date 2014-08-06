@@ -24,7 +24,10 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         TextView tv = (TextView) findViewById(R.id.hello_world);
 
-        tv.setText("Username: " + User.getInstance(this).getUsername());
+        String text = "Class Name:\n" + getClass().getName();
+        text += "\n\nUsername: " + User.getInstance(this).getUsername();
+        tv.setText(text);
+
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
