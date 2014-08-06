@@ -1,4 +1,4 @@
-package com.test.plugin;
+package me.chunyu.plugintest.plugin;
 
 import android.app.Activity;
 import android.os.Bundle;

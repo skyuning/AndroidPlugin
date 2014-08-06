@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
         <activity
-            android:name="com.test.plugin.MainActivity"
+            android:name="me.chunyu.plugintest.plugin.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="com.test.plugin.NextActivity" />
+        <activity android:name="me.chunyu.plugintest.plugin.NextActivity" />
     </application>
 
 </manifest>

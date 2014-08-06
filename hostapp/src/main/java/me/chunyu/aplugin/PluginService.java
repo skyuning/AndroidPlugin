@@ -1,8 +1,7 @@
-package org.skyun.aplugin;
+package me.chunyu.aplugin;
 
 import android.app.Service;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.IBinder;
 
 /**

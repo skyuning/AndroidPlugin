@@ -1,8 +1,7 @@
-package org.skyun.aplugin;
+package me.chunyu.aplugin;
 
 import android.app.Activity;
 import android.app.Instrumentation;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -14,8 +13,6 @@ import android.util.DisplayMetrics;
 import android.view.ContextThemeWrapper;
 
 import com.google.dexmaker.stock.ProxyBuilder;
-
-import org.skyun.aplugin.utils.FileUtils;
 
 import java.io.File;
 import java.io.IOException;

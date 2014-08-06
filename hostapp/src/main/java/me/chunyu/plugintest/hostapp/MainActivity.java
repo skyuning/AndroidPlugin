@@ -1,4 +1,4 @@
-package com.example.hostapp;
+package me.chunyu.plugintest.hostapp;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -6,10 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.example.hostapp.R;
 import com.example.user.User;
 
-import org.skyun.aplugin.PluginManager;
-import org.skyun.aplugin.PluginService;
+import me.chunyu.aplugin.PluginManager;
+import me.chunyu.aplugin.PluginService;
 
 
 public class MainActivity extends Activity {

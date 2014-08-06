@@ -1,4 +1,4 @@
-package org.skyun.aplugin;
+package me.chunyu.aplugin;
 
 /**
  * Created by linyun on 14-6-17.
