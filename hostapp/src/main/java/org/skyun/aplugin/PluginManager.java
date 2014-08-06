@@ -58,8 +58,8 @@ public class PluginManager {
     public static PluginInfo installPlugin(Context context, String packageName) {
         String filename = packageName + PLUGIN_SUFFIX;
         PluginInfo pluginInfo = getPluginInfoMap().get(filename);
-//        if (pluginInfo != null)
-//            return pluginInfo;
+        if (pluginInfo != null)
+            return pluginInfo;
 
         File externalFile = new File(getExternalPluginDir(context), filename);
         if (externalFile.exists())
