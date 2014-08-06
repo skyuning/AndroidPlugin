@@ -23,14 +23,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="MainActivity" />
-        <activity
-            android:name="NextActivity"
-            android:process=":remote" />
-
-        <service
-            android:name="me.chunyu.aplugin.PluginService"
-            android:process=":remote" />
+        <activity android:name="me.chunyu.plugintest.plugin.MainActivity" />
+        <activity android:name="me.chunyu.plugintest.plugin.NextActivity" />
     </application>
 
 </manifest>

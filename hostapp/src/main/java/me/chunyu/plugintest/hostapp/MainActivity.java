@@ -10,12 +10,11 @@ import com.example.hostapp.R;
 import com.example.user.User;
 
 import me.chunyu.aplugin.PluginManager;
-import me.chunyu.aplugin.PluginService;
 
 
 public class MainActivity extends Activity {
 
-    private static String sPluginPackageName = "com.test.plugin";
+    private static String sPluginPackageName = "me.chunyu.plugintest.plugin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +38,8 @@ public class MainActivity extends Activity {
                 try {
                     Class clz = PluginManager.getPluginInfoMap().get(sPluginPackageName)
                             .mClassLoader.loadClass(sPluginPackageName + ".MainActivity");
-                    Intent realIntent = new Intent(MainActivity.this, clz);
-                    Intent intent = new Intent(MainActivity.this, PluginService.class);
-                    intent.putExtra(PluginService.EXTRA_PLUGIN_PACKAGE, sPluginPackageName);
-                    intent.putExtra(PluginService.EXTRA_REAL_INTENT, realIntent);
-                    startService(intent);
+                    Intent intent = new Intent(MainActivity.this, clz);
+                    startActivity(intent);
                 } catch (ClassNotFoundException e) {
                     e.printStackTrace();
                 }

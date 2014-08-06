@@ -96,15 +96,6 @@ public class PluginManager {
         pluginInfo.mClassLoader = new DexClassLoader(dexPath, dexOutputDir.getAbsolutePath(), null, context.getClassLoader());
         String filename = (new File(dexPath)).getName();
         pluginInfo.mDexPath = dexOutputDir + "/" + filename;
-
-        PackageInfo packageInfo = context.getPackageManager().getPackageArchiveInfo(dexPath, 0);
-        try {
-            Class pluginEntryClass = pluginInfo.mClassLoader.loadClass(packageInfo.packageName + "Entry");
-            pluginInfo.mEntryClass = pluginEntryClass;
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
         return pluginInfo;
     }
 
