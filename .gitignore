@@ -1,2 +1,5 @@
 .idea
 out
+hostapp/src/main/gen/
+plugin/src/main/gen/
+user/gen/
